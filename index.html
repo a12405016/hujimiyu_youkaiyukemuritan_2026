@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>富士見湯「妖怪湯けむり譚」2026.11.25–11.29｜川崎 富士見湯 × 東京造形大学</title>
+    <meta name="description"
+        content="川崎・富士見湯に妖怪たちが隠れている？！富士山のペンキ絵へのプロジェクションマッピングや装飾で、いつもの銭湯が特別な空間に。2026年11月25日（水）〜29日（日）、27日（金）は定休日。川崎 富士見湯 × 東京造形大学。">
+    <meta name="theme-color" content="#6b2d5c">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- OGP：公開アドレスが決まったら og:url と og:image を絶対URLに書き換える -->
+    <meta property="og:title" content="富士見湯「妖怪湯けむり譚」">
+    <meta property="og:description" content="川崎・富士見湯に妖怪たちが隠れている？！2026年11月25日（水）〜29日（日）開催。">
+    <meta property="og:image" content="images/ogp.jpg">
+    <meta property="og:url" content="https://yokai.fujimiyu.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/hero_back.webp">
+    <link rel="preload" as="image" href="images/hero_title.webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- タイトルのディゾルブ用フィルター（湯けむりのようにほどける） -->
+    <svg class="visually-hidden" aria-hidden="true" focusable="false">
+        <filter id="steam-dissolve" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence id="steam-noise" type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7"
+                result="noise"></feTurbulence>
+            <feDisplacementMap id="steam-map" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R"
+                yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    </svg>
+
+    <!-- ===== ヘッダー ===== -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <a class="header__logo" href="#top">富士見湯妖怪湯けむり譚</a>
+            <nav class="header__nav" aria-label="メインメニュー">
+                <ul class="nav-list">
+                    <li><a href="#guide">はじめての方へ</a></li>
+                    <li><a href="#yokai">妖怪たち</a></li>
+                    <li><a href="#highlights">見どころ</a></li>
+                    <li><a href="#overview">開催概要</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#goods">グッズ</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+                <span class="menu-btn__lines" aria-hidden="true"><span></span><span></span></span>
+                <span class="menu-btn__label">MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== スマホ用メニュー ===== -->
+    <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="メニュー" hidden>
+        <div class="menu__inner">
+            <ol class="menu__list">
+                <li><a href="#story"><span>其の一</span>物語</a></li>
+                <li><a href="#guide"><span>其の二</span>はじめての富士見湯</a></li>
+                <li><a href="#highlights"><span>其の三</span>見どころ</a></li>
+                <li><a href="#overview"><span>其の四</span>開催概要</a></li>
+                <li><a href="#access"><span>其の五</span>アクセス</a></li>
+                <li><a href="#goods"><span>其の六</span>湯上がりとグッズ</a></li>
+                <li><a href="#news"><span>其の七</span>おしらせ</a></li>
+            </ol>
+            <p class="menu__date">2026.11.25 水 → 11.29 日<small>※27日（金）は定休日</small></p>
+            <img class="menu__chara" src="images/chalacter01.webp" alt="" width="228" height="273">
+        </div>
+    </div>
+
+    <main id="main">
+        <!-- ===== メインビジュアル ===== -->
+        <section class="hero" id="top" aria-label="メインビジュアル">
+            <div class="hero__bg">
+                <img src="images/hero_back.webp" alt="富士見湯の浴室と富士山のペンキ絵" width="1728" height="1032" fetchpriority="high">
+            </div>
+            <div class="hero__steam" aria-hidden="true"><span></span><span></span><span></span></div>
+
+            <img class="hero__deco hero__deco--kasumi-l" src="images/hero_item01.webp" alt="" aria-hidden="true"
+                width="601" height="233" data-parallax="0.08" data-drift="-0.25">
+            <img class="hero__deco hero__deco--kasumi-r" src="images/hero_item02.webp" alt="" aria-hidden="true"
+                width="573" height="230" data-parallax="0.12" data-drift="0.3">
+            <img class="hero__deco hero__deco--cloud-r" src="images/head_item02.webp" alt="" aria-hidden="true"
+                width="286" height="309" data-parallax="-0.06">
+            <img class="hero__deco hero__deco--cloud-l" src="images/head_item01.webp" alt="" aria-hidden="true"
+                width="268" height="269" data-parallax="-0.1">
+
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    <img src="images/hero_title.webp" alt="富士見湯 妖怪湯けむり譚" width="672" height="487">
+                </h1>
+                <p class="hero__date">
+                    <time datetime="2026-11-25">2026.11.25<small>水</small></time>
+                    <span class="hero__arrow" aria-label="から">→</span>
+                    <time datetime="2026-11-29">11.29<small>日</small></time>
+                </p>
+                <p class="hero__note">※27日（金）は定休日です</p>
+                <p class="hero__copy">その正体は、富士見湯で確かめよう！</p>
+                <div class="hero__btns">
+                    <a class="btn btn--primary" href="#guide">はじめての方へ</a>
+                    <a class="btn btn--ghost" href="#overview">開催概要を見る</a>
+                </div>
+            </div>
+
+            <div class="hero__tanuki">
+                <p class="balloon">あれ？<br>何か、隠れてる？</p>
+                <img src="images/chalacter01.webp" alt="湯たぬきじい" width="228" height="273">
+            </div>
+        </section>
+
+        <!-- ===== 開催情報の帯 ===== -->
+        <section class="facts" aria-label="開催情報">
+            <dl class="facts__list">
+                <div>
+                    <dt>投影</dt>
+                    <dd>17:00〜23:00</dd>
+                </div>
+                <div>
+                    <dt>物販</dt>
+                    <dd>15:00〜21:00</dd>
+                </div>
+                <div>
+                    <dt>入浴料</dt>
+                    <dd>大人 570円</dd>
+                </div>
+                <div>
+                    <dt>アクセス</dt>
+                    <dd>川崎駅西口 徒歩7分</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- ===== 其の一 物語 ===== -->
+        <section class="section section--cream" id="story" aria-labelledby="story-title">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="sec-head__no">其の一　物語</p>
+                    <h2 class="sec-head__title" id="story-title" data-dissolve>富士見湯に、妖怪たちが隠れている!?</h2>
+                </header>
+
+                <div class="story">
+                    <div class="story__text" data-reveal>
+                        <p>10月31日のハロウィンで大忙しだった妖怪たちは、すっかり汚れてしまった。</p>
+                        <p>汚れを落としに富士見湯へ来たものの、人がいて入ることができない……。</p>
+                        <p>そこで冬至の準備をしていたゆずの子が、隠れている妖怪を発見！<br>他にも隠れている妖怪たちを探し出し、一緒に銭湯に入ろう。</p>
+                    </div>
+                    <figure class="story__img" data-unroll>
+                        <img src="images/story_image.webp" alt="富士見湯の赤富士のペンキ絵" width="1600" height="1200"
+                            loading="lazy">
+                        <img class="story__duck" src="images/duck.webp" alt="" aria-hidden="true" width="300"
+                            height="270" loading="lazy">
+                    </figure>
+                </div>
+
+                <h3 class="sub-title" id="yokai" data-dissolve>湯けむりに隠れた、三匹の妖怪</h3>
+                <div class="yokai" data-carousel>
+                    <article class="yokai-card yokai-card--purple" data-reveal>
+                        <div class="yokai-card__img"><img src="images/chalacter02.webp" alt="天沫（あまわ）" width="356"
+                                height="261" loading="lazy"></div>
+                        <div class="yokai-card__body">
+                            <p class="yokai-card__catch">“いつでも可愛く美しく！”</p>
+                            <h4 class="yokai-card__name">天沫（あまわ）</h4>
+                            <p>厄を洗い流す力を持つ泡のアマビエ。泡がきらめくところにどこからともなく現れ、ふわふわの泡でみんなを綺麗にして守っている。湯上がり姿も抜かりない。</p>
+                        </div>
+                    </article>
+                    <article class="yokai-card yokai-card--green" data-reveal>
+                        <div class="yokai-card__img"><img src="images/chalacter03.webp" alt="れん" width="262"
+                                height="312" loading="lazy"></div>
+                        <div class="yokai-card__body">
+                            <p class="yokai-card__catch">“遊ぶの大好き！”</p>
+                            <h4 class="yokai-card__name">れん</h4>
+                            <p>水を見ると飛び込んでしまうやんちゃな子。綺麗になっても水遊びをやめないので、なかなか湯船から出てこない。シャンプーハットとひよこのおもちゃがお気に入り。</p>
+                        </div>
+                    </article>
+                    <article class="yokai-card yokai-card--blue" data-reveal>
+                        <div class="yokai-card__img"><img src="images/chalacter04.webp" alt="こはく" width="349"
+                                height="312" loading="lazy"></div>
+                        <div class="yokai-card__body">
+                            <p class="yokai-card__catch">“お風呂上がりの冷たいものが好き！”</p>
+                            <h4 class="yokai-card__name">こはく</h4>
+                            <p>普段は雪の中で暮らしているけれど、銭湯とお風呂上がりの冷たい飲み物が大好き。この子が入った後のお湯は、ほんの少し冷たいらしい。</p>
+                        </div>
+                    </article>
+                </div>
+                <p class="swipe-hint" aria-hidden="true">← スワイプ →</p>
+
+                <div class="hidden-yokai" data-reveal>
+                    <img class="hidden-yokai__fire hidden-yokai__fire--l" src="images/andsoon01.webp" alt=""
+                        aria-hidden="true" width="80" height="136" loading="lazy">
+                    <div class="hidden-yokai__shadows">
+                        <img src="images/chalacter_black01.webp" alt="正体不明の妖怪のシルエット" width="196" height="204"
+                            loading="lazy">
+                        <img src="images/chalacter_black02.webp" alt="正体不明の妖怪のシルエット" width="107" height="204"
+                            loading="lazy">
+                        <img src="images/chalacter_black03.webp" alt="正体不明の妖怪のシルエット" width="137" height="204"
+                            loading="lazy">
+                    </div>
+                    <div class="hidden-yokai__text">
+                        <p class="hidden-yokai__title">まだまだ隠れている……？</p>
+                        <p>他の妖怪たちの正体は、富士見湯で確かめよう。</p>
+                    </div>
+                    <img class="hidden-yokai__fire hidden-yokai__fire--r" src="images/andsoon02.webp" alt=""
+                        aria-hidden="true" width="111" height="164" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 其の二 はじめての富士見湯 ===== -->
+        <section class="section section--paper" id="guide" aria-labelledby="guide-title">
+            <img class="deco deco--guide-cloud" src="images/tutorial_item01.webp" alt="" aria-hidden="true" width="268"
+                height="269" loading="lazy" data-parallax="-0.05">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="sec-head__no">其の二　はじめての富士見湯</p>
+                    <h2 class="sec-head__title" id="guide-title" data-dissolve>ぽんじぃの、銭湯の入り方</h2>
+                    <p class="sec-head__lead">はじめてでも大丈夫。持ち物から入り方まで、<br>富士見湯に住みついているたぬきのぽんじぃちゃんが教えてくれます。</p>
+                </header>
+
+                <div class="guide">
+                    <div class="guide__chara" data-reveal>
+                        <img class="guide__tanuki" src="images/chalacter01.webp" alt="湯たぬきじい" width="228" height="273"
+                            loading="lazy">
+                        <p class="balloon balloon--large">手ぶらで来ても<br>大丈夫じゃよ。<br>湯上がりの牛乳も<br>忘れずにな。</p>
+                        <img class="guide__cloud" src="images/tutorial_item02.webp" alt="" aria-hidden="true"
+                            width="267" height="268" loading="lazy">
+                    </div>
+                    <div class="kit" data-reveal>
+                        <p class="kit__label">持ち物の心配なし</p>
+                        <h3 class="kit__title">手ぶらでOK</h3>
+                        <dl class="kit__list">
+                            <div>
+                                <dt>フェイスタオル</dt>
+                                <dd>2枚まで無料</dd>
+                            </div>
+                            <div>
+                                <dt>バスタオル</dt>
+                                <dd>1枚 30円</dd>
+                            </div>
+                            <div>
+                                <dt>シャンプー・リンス</dt>
+                                <dd>各 100円</dd>
+                            </div>
+                            <div>
+                                <dt>ボディソープ・石鹸</dt>
+                                <dd>各 40円</dd>
+                            </div>
+                        </dl>
+                        <p class="kit__note">シャンプー類は備え付けがないため、持参するか番台でお買い求めください。</p>
+                    </div>
+                </div>
+
+                <ol class="steps" data-carousel>
+                    <li class="step" data-reveal>
+                        <div class="step__img" data-unroll><img src="images/tutorial_guide01.webp" alt="木札の靴箱"
+                                width="268" height="204" loading="lazy"><span class="step__no">1</span></div>
+                        <h3 class="step__title">木札の靴箱に靴を入れる</h3>
+                        <p>妖怪の焼印が入った木札を探してみよう。</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <div class="step__img" data-unroll><img src="images/tutorial_guide02.webp" alt="番台" width="268"
+                                height="204" loading="lazy"><span class="step__no">2</span></div>
+                        <h3 class="step__title">番台で入浴料を払う</h3>
+                        <p>大人570円。タオルやシャンプーもここで。</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <div class="step__img" data-unroll><img src="images/tutorial_guide03.webp" alt="脱衣所のロッカー"
+                                width="268" height="204" loading="lazy"><span class="step__no">3</span></div>
+                        <h3 class="step__title">脱衣所のロッカーへ</h3>
+                        <p>ロッカーの扉にも、何かいるかも。</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <div class="step__img" data-unroll><img src="images/tutorial_guide04.webp" alt="浴室の洗い場"
+                                width="268" height="204" loading="lazy"><span class="step__no">4</span></div>
+                        <h3 class="step__title">体を洗ってから湯船へ</h3>
+                        <p>カランは押すとお湯が出るタイプ。</p>
+                    </li>
+                </ol>
+                <p class="swipe-hint" aria-hidden="true">← スワイプ →</p>
+            </div>
+        </section>
+
+        <!-- ===== 其の三 見どころ ===== -->
+        <section class="section section--plum" id="highlights" aria-labelledby="highlights-title">
+            <div class="container">
+                <header class="sec-head sec-head--light">
+                    <p class="sec-head__no">其の三　見どころ</p>
+                    <h2 class="sec-head__title" id="highlights-title" data-dissolve>湯船に浸かっている間も、退屈させない</h2>
+                    <p class="sec-head__lead">デンキ風呂やジェットバス、いつもの広い湯船に、<br>この期間だけの仕掛けが加わります。</p>
+                </header>
+
+                <div class="gallery">
+                    <figure class="gallery__main" data-unroll>
+                        <img src="images/highlights_item01.webp" alt="青い富士のペンキ絵がある浴室" width="714" height="505"
+                            loading="lazy">
+                        <figcaption>青い富士の浴室 / 男湯</figcaption>
+                    </figure>
+                    <figure class="gallery__sub" data-unroll>
+                        <img src="images/highlights_item02.webp" alt="赤い富士のペンキ絵がある浴室" width="549" height="240"
+                            loading="lazy">
+                        <figcaption>赤い富士の浴室 / 女湯</figcaption>
+                    </figure>
+                    <div class="gallery__note" data-reveal>
+                        <div>
+                            <p class="gallery__label">いつでも楽しめる</p>
+                            <p class="gallery__title">でんき風呂<br>ジェットバス</p>
+                        </div>
+                        <div class="gallery__ph" aria-hidden="true"><img src="images/highlights_item03.png" alt="">
+                        </div>
+                    </div>
+                    <img class="deco deco--water-r" src="images/water01.webp" alt="" aria-hidden="true" width="411"
+                        height="431" loading="lazy">
+                </div>
+
+                <div class="features">
+                    <img class="deco deco--water-l" src="images/water01.webp" alt="" aria-hidden="true" width="411"
+                        height="431" loading="lazy">
+                    <article class="feature" data-reveal>
+                        <span class="tag">17:00〜23:00</span>
+                        <h3>プロジェクションマッピング</h3>
+                        <p>富士山のペンキ絵の水面から、妖怪たちが顔をのぞかせる。今年はどんなストーリーなのか？</p>
+                    </article>
+                    <article class="feature" data-reveal>
+                        <span class="tag">鏡の横・湯船の縁</span>
+                        <h3>お湯で色が変わるステッカー</h3>
+                        <p>お湯をかけると、汚れていた妖怪がきれいな姿に！？</p>
+                    </article>
+                    <article class="feature" data-reveal>
+                        <span class="tag">脱衣所・靴箱</span>
+                        <h3>ロッカーと焼印木札</h3>
+                        <p>ロッカーの扉にも、何かいるかも。また、靴箱の木札にも妖怪の焼印が、、、</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 其の四 開催概要 ===== -->
+        <section class="section section--cream" id="overview" aria-labelledby="overview-title">
+            <img class="deco deco--kasumi-r" src="images/hero_item01.webp" alt="" aria-hidden="true" width="601"
+                height="233" loading="lazy" data-parallax="0.05" data-drift="0.2">
+            <img class="deco deco--kasumi-l" src="images/hero_item02.webp" alt="" aria-hidden="true" width="573"
+                height="230" loading="lazy" data-parallax="-0.05" data-drift="-0.2">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="sec-head__no">其の四　開催概要</p>
+                    <h2 class="sec-head__title" id="overview-title" data-dissolve>妖怪Week 2026</h2>
+                </header>
+
+                <ul class="days" aria-label="開催日">
+                    <li class="day" data-date="2026-11-25" data-reveal><b>25</b><span>水</span></li>
+                    <li class="day" data-date="2026-11-26" data-reveal><b>26</b><span>木</span></li>
+                    <li class="day day--off" data-date="2026-11-27" data-reveal><b>27</b><span>定休日</span></li>
+                    <li class="day" data-date="2026-11-28" data-reveal><b>28</b><span>土</span></li>
+                    <li class="day" data-date="2026-11-29" data-reveal><b>29</b><span>日</span></li>
+                </ul>
+
+                <dl class="info" data-reveal>
+                    <div>
+                        <dt>開催期間</dt>
+                        <dd>2026年11月25日（水）〜29日（日）<br>※27日（金）は定休日</dd>
+                    </div>
+                    <div>
+                        <dt>プロジェクションマッピング</dt>
+                        <dd>17:00〜23:00</dd>
+                    </div>
+                    <div>
+                        <dt>グッズ販売</dt>
+                        <dd>15:00〜23:00（靴箱前の売店）</dd>
+                    </div>
+                    <div>
+                        <dt>営業時間</dt>
+                        <dd>15:00〜23:00<br>日曜は朝湯 7:00〜11:00 もあり</dd>
+                    </div>
+                    <div>
+                        <dt>入浴料</dt>
+                        <dd>大人 570円／中学生 470円／小学生 250円／小人 130円<br>※中学生は生徒手帳をご提示ください<br>※小人は保護者同伴で無料</dd>
+                    </div>
+                    <div>
+                        <dt>会場</dt>
+                        <dd>川崎 富士見湯（川崎市幸区幸町4-2-3）</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ===== 其の五 アクセス ===== -->
+        <section class="section section--paper" id="access" aria-labelledby="access-title">
+            <div class="access-waves" aria-hidden="true">
+                <img class="access-waves__big" src="images/water01.webp" alt="" width="411" height="431" loading="lazy"
+                    data-parallax="-0.06">
+                <img class="access-waves__double" src="images/water03.webp" alt="" width="201" height="182"
+                    loading="lazy" data-parallax="0.05">
+                <img class="access-waves__small" src="images/water02.webp" alt="" width="324" height="424"
+                    loading="lazy">
+            </div>
+            <div class="container">
+                <header class="sec-head sec-head--water">
+                    <p class="sec-head__no">其の五　アクセス</p>
+                    <h2 class="sec-head__title" id="access-title" data-dissolve>JR川崎駅西口から、歩いて7分</h2>
+                </header>
+
+                <div class="access">
+                    <div class="access__map" data-reveal>
+                        <iframe title="富士見湯の地図"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.7001131612856!2d139.6958242!3d35.536407800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018609c824a1b11%3A0x11dff02ccd35b748!2z5a-M5aOr6KaL5rmv!5e0!3m2!1sja!2sjp!4v1795197432970!5m2!1sja!2sjp"
+                            width="600" height="450" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <div class="access__info" data-reveal>
+                        <figure class="access__photo" data-unroll>
+                            <img src="images/access_image.webp" alt="夜の富士見湯の外観。提灯とのれんが目印" width="624" height="300"
+                                loading="lazy">
+                            <figcaption>提灯とのれんが目印</figcaption>
+                        </figure>
+                        <dl class="access__list">
+                            <div>
+                                <dt>住所</dt>
+                                <dd>〒212-0011 神奈川県川崎市幸区幸町4-2-3</dd>
+                            </div>
+                            <div>
+                                <dt>電車</dt>
+                                <dd>JR川崎駅 西口から徒歩7分</dd>
+                            </div>
+                            <div>
+                                <dt>車</dt>
+                                <dd>駐車場はありません。周辺のコインパーキングをご利用ください</dd>
+                            </div>
+                            <div>
+                                <dt>ご注意</dt>
+                                <dd>店舗前の道路は15:00〜18:00 歩行者専用です</dd>
+                            </div>
+                        </dl>
+                        <a class="btn btn--primary btn--small"
+                            href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%A3%AB%E8%A6%8B%E6%B9%AF+%E5%B7%9D%E5%B4%8E%E5%B8%82%E5%B9%B8%E5%8C%BA%E5%B9%B8%E7%94%BA4-2-3"
+                            target="_blank" rel="noopener">地図アプリで開く</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 其の六 湯上がりとグッズ ===== -->
+        <section class="section section--cream" id="goods" aria-labelledby="goods-title">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="sec-head__no">其の六　湯上がりとグッズ</p>
+                    <h2 class="sec-head__title" id="goods-title" data-dissolve>ぽかぽかのまま、もうひと楽しみ</h2>
+                </header>
+
+                <div class="after">
+                    <div class="after-card after-card--blue" data-reveal>
+                        <div class="after-card__ph" aria-hidden="true"><img src="images/drink_01.png" alt=""></div>
+                        <div>
+                            <p class="after-card__title">冷たい飲み物でひと息</p>
+                            <p>飲み物ケースのそばに、こはくがいるかも。</p>
+                        </div>
+                        <img class="after-card__chara" src="images/chalacter04.webp" alt="" aria-hidden="true"
+                            width="349" height="312" loading="lazy">
+                    </div>
+                    <div class="after-card after-card--beige" data-reveal>
+                        <div class="after-card__ph" aria-hidden="true"><img src="images/drink_02.png" alt=""></div>
+                        <div>
+                            <p class="after-card__title">お風呂上がりは牛乳</p>
+                            <p>湯たぬきじいは、上がったら必ず一本。</p>
+                        </div>
+                        <img class="after-card__chara" src="images/chalacter01.webp" alt="" aria-hidden="true"
+                            width="228" height="273" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="goods">
+                    <div class="goods__head">
+                        <h3 class="goods__title">限定グッズ</h3>
+                        <p class="goods__note">販売 15:00〜21:00／数量限定・なくなり次第終了</p>
+                    </div>
+                    <p class="goods__soon" data-reveal>グッズのラインナップは近日公開！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 其の七 おしらせ ===== -->
+        <section class="section section--paper" id="news" aria-labelledby="news-title">
+            <div class="container">
+                <header class="sec-head">
+                    <p class="sec-head__no">其の七　おしらせ</p>
+                    <h2 class="sec-head__title" id="news-title" data-dissolve>見つけたら、教えてね</h2>
+                </header>
+
+                <div class="news">
+                    <article class="news-card" data-reveal>
+                        <h3>SNSで最新情報</h3>
+                        <p>妖怪たちの最新情報やショート動画を公開中。</p>
+                        <ul class="sns">
+                            <li>
+                                <a class="sns__link sns__link--x" href="https://x.com/Fujimiyuzu" target="_blank"
+                                    rel="noopener">
+                                    <span class="sns__icon"><svg class="sns-icon" viewBox="0 0 24 24" width="22"
+                                            height="22" aria-hidden="true">
+                                            <path fill="currentColor"
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg></span>
+                                    <span class="sns__text"><b>X</b><small>@Fujimiyuzu</small></span>
+                                    <span class="sns__arrow" aria-hidden="true">→</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sns__link sns__link--ig" href="https://www.instagram.com/fujimiyuzu/"
+                                    target="_blank" rel="noopener">
+                                    <span class="sns__icon"><svg class="sns-icon" viewBox="0 0 24 24" width="22"
+                                            height="22" aria-hidden="true">
+                                            <path fill="currentColor"
+                                                d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z" />
+                                        </svg></span>
+                                    <span class="sns__text"><b>Instagram</b><small>@fujimiyuzu</small></span>
+                                    <span class="sns__arrow" aria-hidden="true">→</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p><small>※浴室内のため写真撮影はご遠慮ください。</small></p>
+                    </article>
+                    <article class="news-card" data-reveal>
+                        <h3>アンケートに答えてプレゼント</h3>
+                        <p>靴箱前の売店のQRコード、または用紙でご回答ください。回答者にステッカーか缶バッジをプレゼント。</p>
+                        <div class="qr" aria-hidden="true">[QR]</div>
+                    </article>
+                    <article class="news-card news-card--yellow" data-reveal>
+                        <h3>12月22日（火）冬至</h3>
+                        <p>ゆずの子が主役の柚子湯の日。妖怪たちのアナザーストーリーもSNSで。</p>
+                        <a class="text-link" href="https://yuzunoko.fujimiyu.com/" target="_blank"
+                            rel="noopener">昨年度「ゆずの子からの招待状」を見る</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== フッター ===== -->
+    <footer class="footer">
+        <div class="footer__logos">
+            <a href="https://fujimiyu.com/" target="_blank" rel="noopener">
+                <img src="images/footer_logo_hujimiyu.svg" alt="川崎 富士見湯" width="180" height="56" loading="lazy">
+            </a>
+            <span aria-hidden="true">×</span>
+            <a href="https://www.zokei.ac.jp/" target="_blank" rel="noopener">
+                <img src="images/footer_logo_tzu.svg" alt="東京造形大学" width="220" height="36" loading="lazy">
+            </a>
+        </div>
+        <!-- <ul class="footer__sns" aria-label="公式SNS"> 
+            <li><a href="https://x.com/Fujimiyuzu" target="_blank" rel="noopener" aria-label="X（@Fujimiyuzu）"><svg
+                        class="sns-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg></a></li>
+            <li><a href="https://www.instagram.com/fujimiyuzu/" target="_blank" rel="noopener"
+                    aria-label="Instagram（@fujimiyuzu）"><svg class="sns-icon" viewBox="0 0 24 24" width="22" height="22"
+                        aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z" />
+                    </svg></a></li>
+        </ul>-->
+        <ul class="footer__links">
+            <li><a href="https://fujimiyu.com/" target="_blank" rel="noopener">富士見湯 公式サイト</a></li>
+            <li><a href="https://yuzunoko.fujimiyu.com/" target="_blank" rel="noopener">昨年度「ゆずの子からの招待状」</a></li>
+            <li><a href="https://zoomedia.sakura.ne.jp/mdweb/" target="_blank" rel="noopener">東京造形大学 メディアデザイン専攻領域</a>
+            </li>
+        </ul>
+        <p class="footer__credit">企画・制作：東京造形大学 メディアデザイン専攻領域 三年生有志</p>
+        <p class="footer__copy"><small>&copy; 2026 富士見湯 × 東京造形大学</small></p>
+    </footer>
+
+    <a class="to-top" id="to-top" href="#top" aria-label="ページの先頭へ戻る">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </a>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
