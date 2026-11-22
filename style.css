@@ -411,7 +411,8 @@ button {
 .menu__inner {
     position: relative;
     min-height: 100%;
-    padding: calc(var(--header-h) + 28px) 28px 40px;
+    /* 下はぽんじぃ（.menu__chara）の分をあけて、日程と重ならないようにする */
+    padding: calc(var(--header-h) + 28px) 28px 156px;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -458,6 +459,10 @@ button {
     transition-delay: .45s;
 }
 
+.menu.is-open .menu__list li:nth-child(8) {
+    transition-delay: .5s;
+}
+
 .menu__list a {
     display: flex;
     align-items: baseline;
@@ -495,6 +500,19 @@ button {
     right: 16px;
     bottom: 24px;
     width: 104px;
+}
+
+/* 項目が8つになったので、背の低いスマホでは行間を詰める */
+@media (max-height: 740px) {
+    .menu__inner {
+        padding-top: calc(var(--header-h) + 16px);
+        gap: 20px;
+    }
+
+    .menu__list a {
+        padding: 10px 0;
+        font-size: 18px;
+    }
 }
 
 /* =========================================================
@@ -1338,6 +1356,17 @@ button {
     min-height: 360px;
 }
 
+/* 縦長の写真でも枠の高さを押し広げないよう、枠いっぱいに敷く */
+.gallery__main img {
+    position: absolute;
+    inset: 0;
+    object-position: center 38%;
+}
+
+.gallery__sub img {
+    object-position: center 30%;
+}
+
 .gallery__sub {
     aspect-ratio: 549 / 240;
 }
@@ -1855,14 +1884,14 @@ button {
 }
 
 .qr {
-    display: grid;
-    place-items: center;
-    width: 88px;
-    height: 88px;
+    display: block;
+    width: 112px;
+    height: 112px;
+    padding: 6px;
     border-radius: 12px;
-    border: 2px dashed #d7c6a6;
-    color: var(--muted);
-    font-size: 11px;
+    background: var(--white);
+    box-shadow: 0 0 0 1px #e6d8bd;
+    image-rendering: pixelated;
 }
 
 /* =========================================================
@@ -1914,6 +1943,26 @@ button {
     gap: 10px 40px;
     margin-top: 28px;
     font-size: 12px;
+}
+
+/* ナビの「昨年度」から来たとき、昨年度サイトへのリンクを光らせる */
+.footer__links a.is-spotlight {
+    border-radius: 4px;
+    animation: spotlight 1s var(--ease-soft) 2;
+}
+
+@keyframes spotlight {
+
+    0%,
+    100% {
+        background-color: transparent;
+        box-shadow: 0 0 0 0 rgba(233, 201, 106, 0);
+    }
+
+    50% {
+        background-color: rgba(233, 201, 106, .22);
+        box-shadow: 0 0 0 6px rgba(233, 201, 106, .22);
+    }
 }
 
 .footer__links a {

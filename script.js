@@ -183,20 +183,51 @@
         .map((a) => document.querySelector(a.getAttribute('href')))
         .filter(Boolean);
 
+    const setCurrent = (id) => {
+        navLinks.forEach((a) => {
+            const on = a.getAttribute('href') === id;
+            a.classList.toggle('is-current', on);
+            if (on) a.setAttribute('aria-current', 'location');
+            else a.removeAttribute('aria-current');
+        });
+    };
+
     if ('IntersectionObserver' in window && navTargets.length) {
         const navIo = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
-                const id = `#${entry.target.id}`;
-                navLinks.forEach((a) => {
-                    const on = a.getAttribute('href') === id;
-                    a.classList.toggle('is-current', on);
-                    if (on) a.setAttribute('aria-current', 'location');
-                    else a.removeAttribute('aria-current');
-                });
+                setCurrent(`#${entry.target.id}`);
             });
         }, { rootMargin: '-45% 0px -50% 0px' });
         navTargets.forEach((el) => navIo.observe(el));
+
+        // フッターは背が低く画面中央まで上がってこないので、最下部に着いたら「昨年度」を現在地にする
+        const footerLink = navLinks.find((a) => a.getAttribute('href') === '#footer');
+        if (footerLink) {
+            let atBottom = false;
+            const checkBottom = () => {
+                const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+                if (bottom && !atBottom) setCurrent('#footer');
+                atBottom = bottom;
+            };
+            window.addEventListener('scroll', checkBottom, { passive: true });
+            checkBottom();
+        }
+    }
+
+    /* 「昨年度」へ飛んだら、昨年度サイトへのリンクを光らせて場所を知らせる */
+    const lastYearLink = document.querySelector('.footer__links a[href*="yuzunoko"]');
+    if (lastYearLink) {
+        document.querySelectorAll('a[href="#footer"]').forEach((a) => {
+            a.addEventListener('click', () => {
+                lastYearLink.classList.remove('is-spotlight');
+                setTimeout(() => {
+                    void lastYearLink.offsetWidth;
+                    lastYearLink.classList.add('is-spotlight');
+                }, reduceMotion ? 0 : 700);
+            });
+        });
+        lastYearLink.addEventListener('animationend', () => lastYearLink.classList.remove('is-spotlight'));
     }
 
     /* ---------------------------------------------------------
