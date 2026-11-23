@@ -488,10 +488,22 @@
 
                 <div class="goods">
                     <div class="goods__head">
-                        <h3 class="goods__title">限定グッズ</h3>
+                        <h3 class="goods__title">オリジナルグッズ</h3>
                         <p class="goods__note">販売 15:00〜23:00／数量限定・なくなり次第終了</p>
                     </div>
-                    <p class="goods__soon" data-reveal>グッズのラインナップは近日公開！</p>
+                    <button class="goods__zoom" type="button" data-lightbox="images/goods-info-large.webp"
+                        aria-haspopup="dialog" aria-label="グッズのお品書きを拡大して見る" data-reveal>
+                        <img src="images/goods-info.webp"
+                            alt="妖怪湯けむり譚 オリジナルグッズのお品書き。スペシャルセット1,000円（トートバッグ、集合缶バッジ、タオル、石鹸、お顔ステッカー2種、ミニ缶バッジ2種）、トートバッグ500円（茶色・ピンク・抹茶の3色）、缶バッジキーホルダー1個200円、Tシャツ こども120cm 1,000円・大人F 1,500円、mini缶バッジ全4種 ガチャガチャ1回100円、集合ステッカー200円、お顔ステッカー1枚200円。"
+                            width="1600" height="1132" loading="lazy">
+                        <span class="goods__zoom-hint" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" />
+                                <path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" />
+                            </svg>拡大して見る</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -583,13 +595,28 @@
         </ul>-->
         <ul class="footer__links">
             <li><a href="https://fujimiyu.com/" target="_blank" rel="noopener">富士見湯 公式サイト</a></li>
-            <li><a href="https://zoomedia.sakura.ne.jp/project/yuzunoko/2025/" target="_blank" rel="noopener">昨年度「ゆずの子からの招待状」</a></li>
+            <li><a href="https://zoomedia.sakura.ne.jp/project/yuzunoko/2025/" target="_blank"
+                    rel="noopener">昨年度「ゆずの子からの招待状」</a></li>
             <li><a href="https://zoomedia.sakura.ne.jp/mdweb/" target="_blank" rel="noopener">東京造形大学 メディアデザイン専攻領域</a>
             </li>
         </ul>
         <p class="footer__credit">企画・制作：東京造形大学 メディアデザイン専攻領域 三年生有志</p>
         <p class="footer__copy"><small>&copy; 2026 富士見湯 × 東京造形大学</small></p>
     </footer>
+
+    <!-- ===== 画像の拡大表示 ===== -->
+    <dialog class="lightbox" id="lightbox" aria-label="拡大表示">
+        <div class="lightbox__stage" id="lightbox-stage">
+            <img class="lightbox__img" id="lightbox-img" src="" alt="">
+        </div>
+        <button class="lightbox__close" id="lightbox-close" type="button" aria-label="閉じる">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" />
+            </svg>
+        </button>
+        <p class="lightbox__hint" aria-hidden="true">画像をタップで拡大／もう一度タップで元に戻る</p>
+    </dialog>
 
     <a class="to-top" id="to-top" href="#top" aria-label="ページの先頭へ戻る">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">

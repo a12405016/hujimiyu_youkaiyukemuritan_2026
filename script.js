@@ -231,6 +231,74 @@
     }
 
     /* ---------------------------------------------------------
+       お品書きの拡大表示（ライトボックス）
+       --------------------------------------------------------- */
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        const lbStage = document.getElementById('lightbox-stage');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbClose = document.getElementById('lightbox-close');
+        let lbTrigger = null;
+
+        const openLightbox = (trigger) => {
+            lbTrigger = trigger;
+            const thumb = trigger.querySelector('img');
+            lbImg.src = trigger.dataset.lightbox || thumb.currentSrc || thumb.src;
+            lbImg.alt = thumb.alt;
+            lightbox.classList.remove('is-zoomed');
+            if (typeof lightbox.showModal === 'function') lightbox.showModal();
+            else lightbox.setAttribute('open', '');
+            document.body.classList.add('is-lightbox-open');
+            requestAnimationFrame(() => lightbox.classList.add('is-open'));
+            lbClose.focus({ preventScroll: true });
+        };
+
+        const closeLightbox = () => {
+            if (!lightbox.open) return;
+            lightbox.classList.remove('is-open');
+            const done = () => {
+                if (typeof lightbox.close === 'function') lightbox.close();
+                else lightbox.removeAttribute('open');
+                lightbox.classList.remove('is-zoomed');
+                document.body.classList.remove('is-lightbox-open');
+                if (lbTrigger) lbTrigger.focus({ preventScroll: true });
+            };
+            if (reduceMotion) done();
+            else setTimeout(done, 300);
+        };
+
+        document.querySelectorAll('[data-lightbox]').forEach((btn) => {
+            btn.addEventListener('click', () => openLightbox(btn));
+        });
+        lbClose.addEventListener('click', closeLightbox);
+
+        // Esc キー：フェードアウトしてから閉じる
+        lightbox.addEventListener('cancel', (e) => {
+            e.preventDefault();
+            closeLightbox();
+        });
+
+        // 画像の外側をタップしたら閉じる
+        lbStage.addEventListener('click', (e) => {
+            if (e.target === lbStage) closeLightbox();
+        });
+
+        // 画像をタップ：押した場所を中心に拡大／もう一度で元に戻す
+        lbImg.addEventListener('click', (e) => {
+            const rect = lbImg.getBoundingClientRect();
+            const rx = (e.clientX - rect.left) / rect.width;
+            const ry = (e.clientY - rect.top) / rect.height;
+            const zoomed = lightbox.classList.toggle('is-zoomed');
+            if (zoomed) {
+                requestAnimationFrame(() => {
+                    lbStage.scrollLeft = lbImg.offsetWidth * rx - lbStage.clientWidth / 2;
+                    lbStage.scrollTop = lbImg.offsetHeight * ry - lbStage.clientHeight / 2;
+                });
+            }
+        });
+    }
+
+    /* ---------------------------------------------------------
        8. スマホメニュー
        --------------------------------------------------------- */
     const menuBtn = document.getElementById('menu-btn');
